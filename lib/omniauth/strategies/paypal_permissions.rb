@@ -6,19 +6,10 @@ module OmniAuth
     class PaypalPermissions
       include OmniAuth::Strategy
 
-      DEFAULT_SCOPE = "openid profile"
-      DEFAULT_RESPONSE_TYPE = "code"
-      SANDBOX_SITE = "https://api.sandbox.paypal.com"
-      SANDBOX_AUTHORIZE_URL = 'https://www.sandbox.paypal.com/webapps/auth/protocol/openidconnect/v1/authorize'
-
       args [:sdk_config]
 
       option :sdk_config, {}
       option :scope, ["ACCESS_BASIC_PERSONAL_DATA"]
-
-      option :authorize_options, [:scope, :response_type]
-      option :provider_ignores_state, true
-      option :sandbox, false
 
       uid do
         raw_info["uid"]
