@@ -110,7 +110,7 @@ module OmniAuth
           identity["display_name"] = identity["company_name"] || identity["full_name"]
           identity
         else
-          fail!(:invalid_credentials)
+          fail!(:invalid_credentials, response.error.first)
         end
       end
 
